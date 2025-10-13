@@ -18,17 +18,20 @@ h1 {
     font-weight: bold;
 }
 
+.custom-button {
+    background-color: #FFC907;
+}
+
 .game-content {
     margin: 0 auto;
     background-color: var(--game-color);
     max-width: 650px;
-    
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-right: 20px;
+    padding-left: 20px;
+    border-radius: 15px;
 }
-
-/* .grid-wrapper {
-    background-color: var(--tile);
-    display: inline-block;
-} */
 
 .main-grid {
     display: flex;
@@ -36,16 +39,21 @@ h1 {
     margin: 0 auto;
     justify-content: center;
     align-items: center;
+    gap: 5px;
 }
+
 .row-container {
-    padding-top: 15px;
+    
     display: flex;
     gap: 15px;
     justify-content: space-between;
     align-items: center;
+    gap: 5px;
+    
 }
 
 .material-symbols-outlined {
+    font-size: 35px;
     color: #277196;
 }
 .tile {
@@ -53,4 +61,5 @@ h1 {
     background-color: var(--tile);
     aspect-ratio: 1/1;
     padding: 50px;
+    border-radius: 15px;
 }
