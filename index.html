@@ -14,112 +14,81 @@
 
 <body>
     <section class="main-container d-flex flex-column gap-3">
+        <span class="px-3" id="score-display">Timer: 0</span>
         <div class="main-text d-flex flex-column justify-content-center align-items-center gap-3">
             <h1>Help Bring Water to Communities in Need</h1>
-            <h2>charity: water</h2>
+            <img src="charitywater.webp" alt="Charity Water Logo" class="charity-water-logo">
             <h3>Level 1</h3>
         </div>
         <div class="game-start d-flex justify-content-center align-items-center">
-            <button type="button" class="btn custom-button">Start Game</button>
+            <button type="button" class="btn start-button">Start Game</button>
         </div>
         <section class="game-content">
-            <!-- <div class="container d-flex flex-column gap-5 justify-content-center align-items-center">
-            <div class="grid-wrapper ">
-                <div class="row d-flex justify-content-between align-items-center">
-                <div class="col-3 tile">Drop</div>
-                <div class="col-3 tile">Drop</div>
-                <div class="col-3 tile">Drop</div>
-                <div class="col-3 tile">Drop</div>
-            </div>
-            </div>
-            <div class="grid-wrapper">
-                <div class="row d-flex justify-content-between align-items-center">
-                <div class="col-3 tile">Drop</div>
-                <div class="col-3 tile">Drop</div>
-                <div class="col-3 tile">Drop</div>
-                <div class="col-3 tile">Drop</div>
-            </div>
-            </div>
-            <div class="grid-wrapper">
-                <div class="row d-flex justify-content-between align-items-center">
-                <div class="col-3 tile">Drop</div>
-                <div class="col-3 tile">Drop</div>
-                <div class="col-3 tile">Drop</div>
-                <div class="col-3 tile">Drop</div>
-            </div>
-            </div>
-            <div class="grid-wrapper">
-                <div class="row d-flex justify-content-between align-items-center">
-                <div class="col-3 tile">Drop</div>
-                <div class="col-3 tile">Drop</div>
-                <div class="col-3 tile">Drop</div>
-                <div class="col-3 tile">Drop</div>
-            </div>
-            </div>
-        </div> -->
             <div class="main-grid">
                 <div class="row-container">
-                    <div class="tile">
+                    <div class="tile correct tile-start" data-row="0" data-col="0">
                         <span class="material-symbols-outlined">
                             water_drop
                         </span>
                     </div>
-                    <div class="tile"><span class="material-symbols-outlined">
+                    <div class="tile correct" data-row="0" data-col="1"><span class="material-symbols-outlined">
                             water_drop
                         </span></div>
-                    <div class="tile"><span class="material-symbols-outlined">
+                    <div class="tile correct" data-row="0" data-col="2"><span class="material-symbols-outlined">
                             water_drop
                         </span></div>
-                    <div class="tile"><span class="material-symbols-outlined">
-                            water_drop
-                        </span></div>
-                </div>
-                <div class="row-container">
-                    <div class="tile"><span class="material-symbols-outlined">
-                            water_drop
-                        </span></div>
-                    <div class="tile"><span class="material-symbols-outlined">
-                            water_drop
-                        </span></div>
-                    <div class="tile"><span class="material-symbols-outlined">
-                            water_drop
-                        </span></div>
-                    <div class="tile"><span class="material-symbols-outlined">
+                    <div class="tile correct" data-row="0" data-col="3"><span class="material-symbols-outlined">
                             water_drop
                         </span></div>
                 </div>
                 <div class="row-container">
-                    <div class="tile"><span class="material-symbols-outlined">
+                    <div class="tile correct" data-row="1" data-col="0"><span class="material-symbols-outlined">
                             water_drop
                         </span></div>
-                    <div class="tile"><span class="material-symbols-outlined">
+                    <div class="tile correct" data-row="1" data-col="1"><span class="material-symbols-outlined">
                             water_drop
                         </span></div>
-                    <div class="tile"><span class="material-symbols-outlined">
-                            water_drop
+                    <div class="tile" data-row="1" data-col="2"><span class="material-symbols-outlined">
+                            landslide
                         </span></div>
-                    <div class="tile"><span class="material-symbols-outlined">
+                    <div class="tile correct" data-row="1" data-col="3"><span class="material-symbols-outlined">
                             water_drop
                         </span></div>
                 </div>
                 <div class="row-container">
-                    <div class="tile"><span class="material-symbols-outlined">
+                    <div class="tile" data-row="2" data-col="0"><span class="material-symbols-outlined">
+                            landslide
+                        </span></div>
+                    <div class="tile correct" data-row="2" data-col="1"><span class="material-symbols-outlined">
                             water_drop
                         </span></div>
-                    <div class="tile"><span class="material-symbols-outlined">
+                    <div class="tile correct" data-row="2" data-col="2"><span class="material-symbols-outlined">
                             water_drop
                         </span></div>
-                    <div class="tile"><span class="material-symbols-outlined">
+                    <div class="tile correct" data-row="2" data-col="3"><span class="material-symbols-outlined">
                             water_drop
                         </span></div>
-                    <div class="tile"><span class="material-symbols-outlined">
+                </div>
+                <div class="row-container">
+                    <div class="tile" data-row="3" data-col="0"><span class="material-symbols-outlined">
+                            landslide
+                        </span></div>
+                    <div class="tile correct" data-row="3" data-col="1"><span class="material-symbols-outlined">
+                            water_drop
+                        </span></div>
+                    <div class="tile correct" data-row="3" data-col="2"><span class="material-symbols-outlined">
+                            water_drop
+                        </span></div>
+                    <div class="tile correct tile-goal" data-row="3" data-col="3"><span class="material-symbols-outlined">
                             family_group
-                        </span></div>
+                        </span>
+                    </div>
                 </div>
             </div>
 
         </section>
     </section>
+    <script src="data.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.js"></script>
 </body>
-
 </html>
