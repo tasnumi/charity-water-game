@@ -16,8 +16,15 @@ img {
     margin: 0 auto;
 }
 
+.main-text {
+  font-family: "Montserrat", sans-serif
+}
+.hidden {
+  display: none;
+}
+
 h1 {
-    max-width: 450px;
+    max-width: 500px;
     text-align: center;
     font-weight: bold;
 }
@@ -37,7 +44,7 @@ h1 {
     border-radius: 15px;
 }
 
-.main-grid {
+.level-1, .level-2 {
     display: flex;
     flex-direction: column;
     margin: 0 auto;
@@ -74,7 +81,9 @@ h1 {
     padding: 30px;
     border-radius: 15px;
 }
-
+.tile:hover {
+  cursor: pointer;
+}
 .tile-start {
     outline: 4px solid #FFD54F;
 }
@@ -91,7 +100,14 @@ h1 {
     opacity: 0.6;
     pointer-events: none;
 }
+.next-level-button {
+  background-color: #2E9DF7;
+  padding: 10px;
+  border-radius: 10px;
+  border: 2px solid #FFC907;
+  font-family: "Montserrat", sans-serif;
 
+}
 @media (max-width: 700px) {
   h1 {
     font-size: 1.5rem;
