@@ -10,7 +10,8 @@
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <title>Drops of Change</title>
 </head>
@@ -20,119 +21,222 @@
         <span class="px-3" id="score-display"></span>
         <div class="main-text d-flex flex-column justify-content-center align-items-center gap-3">
             <h1>Help Bring Water to Communities in Need</h1>
-            <img src="charitywater.webp" alt="Charity Water Logo" class="charity-water-logo">
+            <img src="images/charitywater.webp" alt="Charity Water Logo" class="charity-water-logo">
             <h3 id="level-title">Level 1</h3>
         </div>
         <div class="game-start d-flex justify-content-center align-items-center">
             <button type="button" class="btn start-button">Start Game</button>
+            <p id="timer-display" class="hidden">Time: 0s</p>
+        </div>
+        <div id="instruction-modal" class="modal">
+            <div class="modal-content">
+                <div class="modal-img d-flex justify-content-center align-items-center">
+                    <img src="images/charitywater.webp">
+                </div>
+                <p>Your goal is to help water reach the village by following the correct path.</p>
+                <ul>
+                    <li>Start from the highlighted yellow tile.</li>
+                    <li>Click on the adjacent blue tiles (💧) to move the water.</li>
+                    <li>Avoid the blocked tiles.</li>
+                    <li>Reach the goal tile with the family to complete the level.</li>
+                    <li>Click on the start button to begin!</li>
+                </ul>
+                <button id="close-modal">Got it!</button>
+            </div>
         </div>
         <section class="game-content">
             <div class="main-grid">
                 <div id="level-1" class="level-1">
                     <div class="row-container">
-                    <div class="tile correct tile-start" data-row="0" data-col="0">
-                    </div>
-                    <div class="tile correct" data-row="0" data-col="1">
+                        <div class="tile correct tile-start" data-row="0" data-col="0">
+                        </div>
+                        <div class="tile correct" data-row="0" data-col="1">
+
+                        </div>
+                        <div class="tile correct" data-row="0" data-col="2">
+
+                        </div>
 
                     </div>
-                    <div class="tile correct" data-row="0" data-col="2">
+                    <div class="row-container">
+                        <div class="tile block" data-row="1" data-col="0">
+
+                        </div>
+                        <div class="tile correct" data-row="1" data-col="1">
+
+                        </div>
+                        <div class="tile correct" data-row="1" data-col="2">
+
+                        </div>
 
                     </div>
+                    <div class="row-container">
+                        <div class="tile block" data-row="2" data-col="0">
 
-                </div>
-                <div class="row-container">
-                    <div class="tile block" data-row="1" data-col="0">
+                        </div>
+                        <div class="tile correct" data-row="2" data-col="1">
 
-                    </div>
-                    <div class="tile correct" data-row="1" data-col="1">
+                        </div>
+                        <div class="tile correct" data-row="2" data-col="2">
 
-                    </div>
-                    <div class="tile correct" data-row="1" data-col="2">
-
-                    </div>
-
-                </div>
-                <div class="row-container">
-                    <div class="tile block" data-row="2" data-col="0">
+                        </div>
 
                     </div>
-                    <div class="tile correct" data-row="2" data-col="1">
+                    <div class="row-container">
+                        <div class="tile correct tile-goal" data-row="3" data-col="0">
+
+                        </div>
+                        <div class="tile correct" data-row="3" data-col="1">
+
+                        </div>
+                        <div class="tile correct" data-row="3" data-col="2">
+
+                        </div>
 
                     </div>
-                    <div class="tile correct" data-row="2" data-col="2">
-
-                    </div>
-
-                </div>
-                <div class="row-container">
-                    <div class="tile correct tile-goal" data-row="3" data-col="0">
-
-                    </div>
-                    <div class="tile correct" data-row="3" data-col="1">
-
-                    </div>
-                    <div class="tile correct" data-row="3" data-col="2">
-
-                    </div>
-
-                </div>
                 </div>
                 <div id="level-2" class="level-2 hidden">
                     <div class="row-container">
-                    <div class="tile correct tile-start" data-row="0" data-col="0">
-                    </div>
-                    <div class="tile correct" data-row="0" data-col="1">
-                        
-                    </div>
-                    <div class="tile correct" data-row="0" data-col="2">
-                        
-                    </div>
-                    <div class="tile correct" data-row="0" data-col="3">
-                        
-                    </div>
-                </div>
-                <div class="row-container">
-                    <div class="tile correct" data-row="1" data-col="0">
-                        
-                    </div>
-                    <div class="tile correct" data-row="1" data-col="1">
-                        
-                    </div>
-                    <div class="tile block" data-row="1" data-col="2">
-                        
-                    </div>
-                    <div class="tile correct" data-row="1" data-col="3">
-                        
-                    </div>
-                </div>
-                <div class="row-container">
-                    <div class="tile block" data-row="2" data-col="0">
-                        
-                    </div>
-                    <div class="tile correct" data-row="2" data-col="1">
-                        
-                    </div>
-                    <div class="tile correct" data-row="2" data-col="2">
-                        
-                    </div>
-                    <div class="tile correct" data-row="2" data-col="3">
-                        
-                    </div>
-                </div>
-                <div class="row-container">
-                    <div class="tile block" data-row="3" data-col="0">
-                        
-                    </div>
-                    <div class="tile correct" data-row="3" data-col="1">
-                        
-                    </div>
-                    <div class="tile correct " data-row="3" data-col="2">
-                        
-                    </div>
-                    <div class="tile correct tile-goal" data-row="3" data-col="3">
+                        <div class="tile correct tile-start" data-row="0" data-col="0">
+                        </div>
+                        <div class="tile correct" data-row="0" data-col="1">
 
+                        </div>
+                        <div class="tile correct" data-row="0" data-col="2">
+
+                        </div>
+                        <div class="tile correct" data-row="0" data-col="3">
+
+                        </div>
+                    </div>
+                    <div class="row-container">
+                        <div class="tile correct" data-row="1" data-col="0">
+
+                        </div>
+                        <div class="tile correct" data-row="1" data-col="1">
+
+                        </div>
+                        <div class="tile block" data-row="1" data-col="2">
+
+                        </div>
+                        <div class="tile correct" data-row="1" data-col="3">
+
+                        </div>
+                    </div>
+                    <div class="row-container">
+                        <div class="tile block" data-row="2" data-col="0">
+
+                        </div>
+                        <div class="tile correct" data-row="2" data-col="1">
+
+                        </div>
+                        <div class="tile correct" data-row="2" data-col="2">
+
+                        </div>
+                        <div class="tile correct" data-row="2" data-col="3">
+
+                        </div>
+                    </div>
+                    <div class="row-container">
+                        <div class="tile block" data-row="3" data-col="0">
+
+                        </div>
+                        <div class="tile correct" data-row="3" data-col="1">
+
+                        </div>
+                        <div class="tile correct " data-row="3" data-col="2">
+
+                        </div>
+                        <div class="tile correct tile-goal" data-row="3" data-col="3">
+
+                        </div>
                     </div>
                 </div>
+                <div id="level-3" class="level-3 hidden">
+                    <div class="row-container">
+                        <div class="tile correct tile-start" data-row="0" data-col="0">
+                        </div>
+                        <div class="tile block" data-row="0" data-col="1">
+
+                        </div>
+                        <div class="tile correct" data-row="0" data-col="2">
+
+                        </div>
+                        <div class="tile correct" data-row="0" data-col="3">
+
+                        </div>
+                        <div class="tile correct" data-row="0" data-col="4">
+
+                        </div>
+                    </div>
+                    <div class="row-container">
+                        <div class="tile correct" data-row="1" data-col="0">
+
+                        </div>
+                        <div class="tile correct" data-row="1" data-col="1">
+
+                        </div>
+                        <div class="tile correct" data-row="1" data-col="2">
+
+                        </div>
+                        <div class="tile correct" data-row="1" data-col="3">
+
+                        </div>
+                        <div class="tile correct" data-row="1" data-col="4">
+
+                        </div>
+                    </div>
+                    <div class="row-container">
+                        <div class="tile block" data-row="2" data-col="0">
+
+                        </div>
+                        <div class="tile correct" data-row="2" data-col="1">
+
+                        </div>
+                        <div class="tile correct" data-row="2" data-col="2">
+
+                        </div>
+                        <div class="tile correct" data-row="2" data-col="3">
+
+                        </div>
+                        <div class="tile block" data-row="2" data-col="4">
+
+                        </div>
+                    </div>
+                    <div class="row-container">
+                        <div class="tile correct" data-row="3" data-col="0">
+
+                        </div>
+                        <div class="tile correct" data-row="3" data-col="1">
+
+                        </div>
+                        <div class="tile correct " data-row="3" data-col="2">
+
+                        </div>
+                        <div class="tile correct" data-row="3" data-col="3">
+
+                        </div>
+                        <div class="tile correct" data-row="3" data-col="4">
+
+                        </div>
+                    </div>
+                    <div class="row-container">
+                        <div class="tile correct tile-goal" data-row="4" data-col="0">
+
+                        </div>
+                        <div class="tile block" data-row="4" data-col="1">
+
+                        </div>
+                        <div class="tile correct " data-row="4" data-col="2">
+
+                        </div>
+                        <div class="tile correct" data-row="4" data-col="3">
+
+                        </div>
+                        <div class="tile correct" data-row="4" data-col="4">
+
+                        </div>
+                    </div>
                 </div>
             </div>
 
