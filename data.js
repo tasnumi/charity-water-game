@@ -1,4 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
+
 const startButton = document.querySelector(".start-button");
 const scoreDisplay = document.getElementById("score-display");
 const levelTitle = document.getElementById("level-title");
@@ -10,6 +11,9 @@ const closeModal = document.getElementById("close-modal");
 const timerDisplay = document.getElementById("timer-display");
 const winModal = document.getElementById("win-modal");
 const winMessage = document.getElementById("win-message");
+const winLevelMessage = document.getElementById("level-num");
+const winTime = document.getElementById("time-num");
+const winScore = document.getElementById("score-num");
 const winCloseButton = document.getElementById("close-win-modal");
 const playAgain = document.getElementById("play-again");
 
@@ -43,6 +47,7 @@ playAgain.addEventListener("click", () => { //play again eventlistener when the 
   playAgain.classList.add("hidden");
   displayLevel();
   setLevelTitle(currentLevelIndex + 1);
+  window.scrollTo({ top: 0, behavior: "smooth" });
 });
 
 waterDropSound.load(); //waterdrop sound load
@@ -144,7 +149,12 @@ function clickTiles(tile) { //function for when a tile is clicked
         }
         timerDisplay.innerText = `Time: ${elapsedTime}s`; //display the players time 
 
-        winMessage.innerText = `Level ${currentLevelIndex + 1} Complete!\nTime: ${elapsedTime}s | Score: ${score}\n Move on to the next level!`; //for the win modal, show the players time and score
+        // winMessage.innerText = `Level ${currentLevelIndex + 1} Complete!\nTime: ${elapsedTime}s | Score: ${score}\n Move on to the next level!`; 
+        //for the win modal, show the players time and score
+        winLevelMessage.innerText = `${currentLevelIndex + 1}`;
+        winTime.innerText = `${elapsedTime}s`;
+        winScore.innerText = `${score}`;
+        winMessage.innerText = "Move on to the next level!";
         winModal.classList.remove("hidden");
         winModal.style.display = "flex";
 
@@ -154,6 +164,8 @@ function clickTiles(tile) { //function for when a tile is clicked
         }
 
         if(currentLevelIndex === levels.length - 1) { //if the current level is the final level, display the play again button so the player can start from level 1
+          winMessage.innerText = "";
+          winMessage.innerText = "Thank you for playing!"
           playAgain.classList.remove("hidden");
           playAgain.style.display("flex");
         }
@@ -183,6 +195,11 @@ startButton.addEventListener("click", () => { //when the player starts the game
     timerDisplay.style.display = "block"; //display the label for the timer
     timerInterval = setInterval(updateTimer, 1000)
 
+    if(currentLevelIndex === levels.length - 1) {
+      const nextLevelElement = levels[currentLevelIndex];
+      nextLevelElement.scrollIntoView({ behavior: 'smooth' });
+    }
+
   });
 
 nextLevel.addEventListener("click", () => { //when the next level button is pressed
@@ -193,13 +210,14 @@ nextLevel.addEventListener("click", () => { //when the next level button is pres
   if(currentLevelIndex < levels.length) { //if we haven't reached the final level
     const nextLevelElement = levels[currentLevelIndex]; //store the next level 
     nextLevelElement.style.display = "flex"; //display the next level after hiding the previous one
-    nextLevelElement.scrollIntoView({ behavior: 'smooth' }); //scroll to the gameboard of the next level on the screen
+    window.scrollTo({ top: 0, behavior: "smooth" });
+    //scroll to the gameboard of the next level on the screen
     setLevelTitle(currentLevelIndex + 1); //set the title of the next level 
     resetGame(); //reset the tiles
   }
   else {
     resetGame();
-  }  
+  } 
 });
 
 function updateScore() { //displays the current score
