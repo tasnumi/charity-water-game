@@ -50,6 +50,7 @@ playAgain.addEventListener("click", () => { //play again eventlistener when the 
   window.scrollTo({ top: 0, behavior: "smooth" });
 });
 
+waterDropSound.preload = "auto";
 waterDropSound.load(); //waterdrop sound load
 let currentLevelIndex = 0; //the first level starts with 0 index (level 1)
 let isGameActive = false; //game is not active 
@@ -63,6 +64,13 @@ let levelData = {
 score: score,
 time: elapsedTime
 };
+
+ document.addEventListener('click', () => { //unlocks audio on first user interaction
+    waterDropSound.play().then(() => {
+      waterDropSound.pause();
+      waterDropSound.currentTime = 0;
+    }).catch(e => {});
+  }, { once: true });
 
 displayLevel(); //displays every level in the level array
 
@@ -117,8 +125,8 @@ function clickTiles(tile) { //function for when a tile is clicked
     if (tile.classList.contains("correct") && isAdjacent) { //if the tile clicked is correct and is adjacent from the previous tile
       tile.classList.add("tile-correct"); //add the tile-correct class to highlight it green
       waterDropSound.currentTime = 0; //start the sound from the beginning
-      waterDropSound.play(); //play the sound when it hits the correct tile
-      waterDropSound.volume = 0.5; //set the volume to 0.5
+      waterDropSound.volume = 0.5; //play the sound when it hits the correct tile
+      waterDropSound.play().catch(e => {});
       lastRow = row; //set the lastRow to the row that was just clicked, same for the column
       lastCol = col;
       lastTile = tile;
