@@ -39,6 +39,9 @@ winModal.style.display = "none";
 if (nextLevel && nextLevel.style.display !== "none") { //scroll to the next level on the screen
   nextLevel.scrollIntoView({ behavior: "smooth", block: "center" });
 }
+else if(currentLevelIndex === levels.length - 1 && playAgain && playAgain.style.display !== "none") {
+  playAgain.scrollIntoView({ behavior: "smooth", block: "center" });
+  }
 });
 
 playAgain.addEventListener("click", () => { //play again eventlistener when the user is on the last level and wants to replay the game
