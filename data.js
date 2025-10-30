@@ -47,7 +47,7 @@ else if(currentLevelIndex === levels.length - 1 && playAgain && playAgain.style.
 playAgain.addEventListener("click", () => { //play again eventlistener when the user is on the last level and wants to replay the game
   currentLevelIndex = 0;
   resetGame();
-  playAgain.classList.add("hidden");
+  playAgain.style.display = "none";
   displayLevel();
   setLevelTitle(currentLevelIndex + 1);
   window.scrollTo({ top: 0, behavior: "smooth" });
@@ -142,10 +142,17 @@ function clickTiles(tile) { //function for when a tile is clicked
         currentStart.classList.remove("tile-start"); //remove the yellow highlight from the start
       }
       tile.classList.add("tile-start"); //add the yellow highlight to the next clicked tile if its correct
-
+      
         // Win condition
       if (tile.classList.contains("tile-goal") && isGameActive) { //if the player reaches the goal endpoint
-        confetti({ //play the confetti animation
+        const correctTiles = currentLevel.querySelectorAll(".correct");
+
+        const allCorrectClicked = Array.from(correctTiles).every(t => 
+          t.classList.contains("tile-correct") || t.classList.contains("tile-goal")
+        );
+
+        if(allCorrectClicked) {
+          confetti({ //play the confetti animation
         particleCount: 100,
         spread: 70,
         origin: { y: 0.6 }
@@ -178,10 +185,20 @@ function clickTiles(tile) { //function for when a tile is clicked
           winMessage.innerText = "";
           winMessage.innerText = "Thank you for playing!"
           playAgain.classList.remove("hidden");
-          playAgain.style.display("flex");
+          playAgain.style.display = "flex";
         }
       }
-      } else { //if the player hits the incorrect tile or it's not an adjacent tile
+      else { //if the player hits the incorrect tile or it's not an adjacent tile
+        // Wrong tile
+        tile.classList.add("tile-wrong"); //add the red highlight to the tile
+        isGameActive = false; //the game is now inactive
+        setTimeout(() => { 
+          tile.classList.remove("tile-wrong");
+          resetGame();
+        }, 600);
+      }
+    }
+  } else { //if the player hits the incorrect tile or it's not an adjacent tile
         // Wrong tile
         tile.classList.add("tile-wrong"); //add the red highlight to the tile
         isGameActive = false; //the game is now inactive
