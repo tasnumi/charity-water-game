@@ -203,7 +203,7 @@ startButton.addEventListener("click", () => { //when the player starts the game
     timerDisplay.style.display = "block"; //display the label for the timer
     timerInterval = setInterval(updateTimer, 1000)
 
-    if(currentLevelIndex === levels.length - 1) {
+    if(currentLevelIndex <= levels.length) {
       const nextLevelElement = levels[currentLevelIndex];
       nextLevelElement.scrollIntoView({ behavior: 'smooth' });
     }
